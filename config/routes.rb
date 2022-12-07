@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   constraints subdomain: "crowdly" do
-    # root to: 'test#index'
-    
+    root to: 'base#index'
   end
 
   resources :test
