@@ -1,10 +1,7 @@
 require:
   - rubocop-rails
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   NewCops: enable
-
 Gemspec/DeprecatedAttributeAssignment:
   Enabled: true
 Gemspec/RequireMFA:
@@ -245,3 +242,25 @@ Rails/WhereNot:
   Enabled: true
 Rails/WhereNotWithMultipleConditions:
   Enabled: true
+Metrics/CyclomaticComplexity:
+  Max: 9
+Metrics/MethodLength:
+  Max: 12
+Metrics/PerceivedComplexity:
+  Max: 9
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/helpers/application_helper.rb'
+    - 'config/application.rb'
+    - 'db/*/*'
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/bundle'
+Layout/LineLength:
+  Max: 90
+  Exclude:
+    - 'config/*/*'
