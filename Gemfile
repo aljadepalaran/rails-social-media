@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -14,13 +12,9 @@ gem 'puma', '~> 5.0'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-# gem "redis", "~> 4.0"
-# gem "kredis"
 
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-# gem "sassc-rails"
-# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -30,8 +24,6 @@ group :development do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'web-console'
-  # gem "rack-mini-profiler"
-  # gem "spring"
 end
 
 group :test do
