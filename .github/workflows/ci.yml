@@ -1,9 +1,9 @@
-name: "GitHub Actions"
+name: "Ruby on Rails CI"
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ 'main' ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ 'main' ]
 
 jobs:
   test:
@@ -15,28 +15,24 @@ jobs:
           - "5432:5432"
         env:
           POSTGRES_DB: crowdly_test
-          POSTGRES_USER: rails
+          POSTGRES_USER: aljadepalaran
           POSTGRES_PASSWORD: password
+
+    env:
+      PGPORT: 5432
+      DATABASE_URL: "postgres://aljadepalaran:password@localhost:5432/crowdly_test"
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Ruby
+      - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          bundler-cache: true
 
-      - name: Install Dependencies
-        run: |
-          sudo apt install -yqq libpq-dev
+      - name: Set up database
+        run: bundle exec rails db:setup
 
-      - name: Prepare Database
-        run: |
-          rails db:prepare
-
-      - name: Run Tests
-        env:
-          DATABASE_URL: "postgres://rails:password@localhost:5432/crowdly_test"
-        run: |
-          rails test
+      - name: Run tests
+        run: bundle exec rails test
