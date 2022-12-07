@@ -3,7 +3,7 @@ class AdminController < ApplicationController
 
   def check_password
     if params['password'] != '123'
-      redirect_to root_path, :notice => 'Forbidden'
+      redirect_to root_path, :flash => {:alert => "Forbidden"}
     end
   end
 end
