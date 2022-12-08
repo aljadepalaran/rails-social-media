@@ -4,7 +4,7 @@ class RegistrationsController < BaseController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(role: 'ADMIN'))
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'You have successfully registered'
