@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
   let(:user) { User.create(valid_params) }
 
-  context 'when logging in' do
-  end
-
   context 'when logging out' do
     it 'clears the user id from the session' do
       session[:user_id] = 1
