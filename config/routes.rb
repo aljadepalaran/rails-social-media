@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get 'register', to: 'registrations#new'
   post 'register', to: 'registrations#create'
 
+  delete 'logout', to: 'sessions#destroy'
+
   resources :test
 end
