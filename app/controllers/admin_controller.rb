@@ -1,9 +1,9 @@
-class AdminController < ApplicationController
-  before_action :check_password
+class AdminController < BaseController
+  before_action :authenticate_user
 
-  def check_password
-    if params['password'] != '123'
-      redirect_to root_path, :flash => {:alert => "Forbidden"}
-    end
+  def authenticate_user
+    return if Current.user.role == 'ADMIN'
+
+    redirect_to root_path, notice: 'Forbidden Actions'
   end
 end
