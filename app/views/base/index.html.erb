@@ -10,10 +10,8 @@
   </div>
 </div>
 <div class="is-size-1  hero-body">Welcome to Crowdly</div>
-<% if flash[:alert] %>
-  <div class="notification is-danger">
-    ALERT: <%= flash.alert %>
-  </div>
-<% elsif flash[:notice] %>
-  NOTICE: 
+
+<%= render partial: 'shared/alerts' %>
+<% if @user %>
+  Logged in as: <%= @user.email %>
 <% end %>

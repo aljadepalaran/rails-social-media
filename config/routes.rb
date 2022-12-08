@@ -6,5 +6,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'login', to: 'sessions#create'
+
+  get 'register', to: 'registrations#new'
+  post 'register', to: 'registrations#create'
+
   resources :test
 end
