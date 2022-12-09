@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
 
+  paginates_per 50
+
   def name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
