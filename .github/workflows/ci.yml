@@ -34,5 +34,19 @@ jobs:
       - name: Set up database
         run: bundle exec rails db:setup
 
-      - name: Run tests
-        run: bundle exec rails test
+      - name: Run RSpec Suite
+        run: bundle exec rspec spec
+  rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run rubocop
+        run: bundle exec rubocop
