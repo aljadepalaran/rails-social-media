@@ -4,6 +4,13 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users
     end
+
+    namespace :api do
+      namespace :v1 do
+        resources :users
+        resources :blogs
+      end
+    end
   end
 
   get 'register', to: 'registrations#new'
