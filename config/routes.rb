@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  constraints subdomain: "crowdly" do
+  constraints subdomain: 'crowdly' do
     root to: 'base#index'
     namespace :admin do
       resources :users

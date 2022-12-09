@@ -16,8 +16,7 @@ class Finders::UsersFinder
     filters = {}
     filters = filter_by_first_name(filters, params[:first_name])
     filters = filter_by_last_name(filters, params[:last_name])
-    filters = filter_by_email(filters, params[:email])
-    filters
+    filter_by_email(filters, params[:email])
   end
 
   def filter_by_first_name(filters, first_name)
