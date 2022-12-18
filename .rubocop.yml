@@ -183,7 +183,7 @@ Rails/I18nLazyLookup:
 Rails/I18nLocaleAssignment:
   Enabled: true
 Rails/I18nLocaleTexts:
-  Enabled: true
+  Enabled: false
 Rails/IgnoredColumnsAssignment:
   Enabled: true
 Rails/Inquiry:
@@ -251,6 +251,7 @@ Metrics/PerceivedComplexity:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
+  Enabled: false
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
@@ -264,3 +265,9 @@ Layout/LineLength:
   Max: 90
   Exclude:
     - 'config/*/*'
+Metrics/BlockLength:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Layout/EndOfLine:
+  Enabled: false

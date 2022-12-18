@@ -1,9 +1,7 @@
 class SessionsController < BaseController
   before_action :check_if_logged_in, except: [:destroy]
 
-  def new
-    
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
@@ -23,8 +21,8 @@ class SessionsController < BaseController
 
   def check_if_logged_in
     # TODO: redirect to user dashboard / homepage
-    if session[:user_id].present?
-      redirect_to root_url, notice: 'You are already logged in'
-    end
+    return if session[:user_id].blank?
+
+    redirect_to root_url, notice: 'You are already logged in'
   end
 end

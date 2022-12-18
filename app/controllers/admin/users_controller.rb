@@ -1,4 +1,3 @@
-
 class Admin::UsersController < AdminController
   def index
     @users = Finders::UsersFinder.new(filter_params).execute
