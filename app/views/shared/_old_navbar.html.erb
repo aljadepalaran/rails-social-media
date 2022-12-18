@@ -1,0 +1,125 @@
+<% if Current.user %>
+  <% case Current.user.role %>
+  <% when 'USER' %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://github.com/aljadepalaran">
+          Crowdly
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Groups
+          </a>
+          <a class="navbar-item">
+            Trending
+          </a>
+        </div>
+        <div class="navbar-end">
+          <a class="navbar-item">
+            Profile
+          </a>
+          <div class="navbar-item">
+            <%= button_to "Logout", logout_path, method: :delete, :class=>"button is-danger" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% when 'ADMIN' %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://github.com/aljadepalaran">
+          Administrator
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Reports
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Users
+              </a>
+              <a class="navbar-item">
+                Posts
+              </a>
+              <a class="navbar-item">
+                Issues
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Content
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Blogs
+              </a>
+              <a class="navbar-item">
+                News
+              </a>
+              <a class="navbar-item">
+                Updates
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Manage
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                API
+              </a>
+              <a class="navbar-item">
+                <%= link_to "Users", admin_users_path %>
+              </a>
+              <a class="navbar-item">
+                Admins
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <%= button_to "Logout", logout_path, method: :delete, :class=>"button is-danger" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <% end %>
+<% else %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://github.com/aljadepalaran">
+        Crowdly
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Updates
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <div class="button is-info">
+              <%= link_to "Register", register_path %>
+            </div>
+            <div class="button">
+              <%= link_to "Login", login_path %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% end %>

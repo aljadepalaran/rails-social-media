@@ -1,7 +1,7 @@
 <% if flash[:alert] %>
-  <div class="notification is-warning"><%= flash.alert %></div>
+  <div class=""><%= flash.alert %></div>
 <% elsif flash[:notice] %>
-  <div class="notification is-info"><%= flash[:notice] %></div>
+  <div class=""><%= flash[:notice] %></div>
 <% elsif flash[:danger] %>
-  <div class="notification is-danger"><%= flash[:danger] %></div>
+  <div class=""><%= flash[:danger] %></div>
 <% end %>
