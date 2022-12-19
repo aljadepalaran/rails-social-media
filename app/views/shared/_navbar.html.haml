@@ -1,0 +1,40 @@
+%nav.navbar.navbar-expand-lg.bg-light
+  .container-fluid
+    = link_to "Crowdly", root_path, class: 'navbar-brand'
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    - if Current.user
+      - case Current.user.role
+      - when 'ADMIN'
+      - when 'USER'
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            %li.nav-item
+              %a.nav-link{:href => "#"} Link
+            %li.nav-item.dropdown
+              %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+                Dropdown
+              %ul.dropdown-menu
+                %li
+                  %a.dropdown-item{:href => "#"} Action
+                %li
+                  %a.dropdown-item{:href => "#"} Another action
+                %li
+                  %hr.dropdown-divider/
+                %li
+                  %a.dropdown-item{:href => "#"} Sub item
+          .d-flex
+            %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+              %li.nav-item
+                %a.nav-link.active{"aria-current" => "page", :href => "#"} Profile
+            %button.btn.btn-danger Logout
+    - else
+      #navbarSupportedContent.collapse.navbar-collapse
+        %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          %li.nav-item
+            %a.nav-link.active{"aria-current" => "page", :href => "#"} Home
+          %li.nav-item
+            %a.nav-link{:href => "#"} Updates
+        .d-flex
+          = link_to "Login", login_path, class: 'btn btn-info m-1'
+          = link_to "Register", login_path, class: 'btn btn-success m-1'

@@ -1,0 +1,34 @@
+Manage Users
+= @users.inspect
+= paginate @users
+= form_with url: admin_users_path, method: :get do |form|
+  %div
+    = text_field_tag 'first_name', params[:first_name], placeholder: 'First Name', class: ''
+    = text_field_tag 'last_name', params[:last_name], placeholder: 'Last Name', class: ''
+    = text_field_tag 'email', params[:email], placeholder: 'Email', class: ''
+    = form.submit 'Search', class: ''
+%table
+  %thead
+    %tr
+      %th ID
+      %th First Name
+      %th Last Name
+      %th Email
+      %th Role
+      %th Actions
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.id
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= user.role
+        %td{:style => "width:15%"}
+          %span
+            %button
+              View
+            %button
+              Edit
+            %button
+              Delete

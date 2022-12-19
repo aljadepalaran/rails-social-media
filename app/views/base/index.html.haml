@@ -1,0 +1,10 @@
+%div
+  %div
+  %div
+    %div
+      %img{:alt => "Crowdly", :src => "https://social-startups.de/wp-content/uploads/2019/06/crowdly-png-logo.jpg"}/
+  %div
+%div Welcome to Crowdly
+= render partial: 'shared/alerts'
+- if @user
+  Logged in as: #{@user.email}

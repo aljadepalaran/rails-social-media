@@ -1,0 +1,25 @@
+%h1 New Registration
+= form_with model: @user, url: register_path do |form|
+  = render partial: 'shared/alerts'
+  %div
+    %label First Name
+    %div
+      = form.text_field :first_name
+  %div
+    %label Last Name
+    %div
+      = form.text_field :last_name
+  %div
+    %label Email
+    %div
+      = form.text_field :email
+  %div
+    %label Password
+    %div
+      = form.password_field :password
+  %div
+    %label Confirm Password
+    %div
+      = form.password_field :password_confirmation
+  %div
+    = form.submit 'Register', :class => ''
