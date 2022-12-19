@@ -1,0 +1,74 @@
+- if Current.user
+  - case Current.user.role
+  - when 'USER'
+    %nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
+      .navbar-brand
+        %a.navbar-item{:href => "https://github.com/aljadepalaran"}
+          Crowdly
+      #navbarBasicExample.navbar-menu
+        .navbar-start
+          %a.navbar-item
+            Groups
+          %a.navbar-item
+            Trending
+        .navbar-end
+          %a.navbar-item
+            Profile
+          .navbar-item
+            = button_to "Logout", logout_path, method: :delete, :class=>"button is-danger"
+  - when 'ADMIN'
+    %nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
+      .navbar-brand
+        %a.navbar-item{:href => "https://github.com/aljadepalaran"}
+          Administrator
+      #navbarBasicExample.navbar-menu
+        .navbar-start
+          .navbar-item.has-dropdown.is-hoverable
+            %a.navbar-link
+              Reports
+            .navbar-dropdown
+              %a.navbar-item
+                Users
+              %a.navbar-item
+                Posts
+              %a.navbar-item
+                Issues
+          .navbar-item.has-dropdown.is-hoverable
+            %a.navbar-link
+              Content
+            .navbar-dropdown
+              %a.navbar-item
+                Blogs
+              %a.navbar-item
+                News
+              %a.navbar-item
+                Updates
+          .navbar-item.has-dropdown.is-hoverable
+            %a.navbar-link
+              Manage
+            .navbar-dropdown
+              %a.navbar-item
+                API
+              %a.navbar-item
+                = link_to "Users", admin_users_path
+              %a.navbar-item
+                Admins
+        .navbar-end
+          .navbar-item
+            = button_to "Logout", logout_path, method: :delete, :class=>"button is-danger"
+- else
+  %nav.navbar{"aria-label" => "main navigation", :role => "navigation"}
+    .navbar-brand
+      %a.navbar-item{:href => "https://github.com/aljadepalaran"}
+        Crowdly
+    #navbarBasicExample.navbar-menu
+      .navbar-start
+        %a.navbar-item
+          Updates
+      .navbar-end
+        .navbar-item
+          .buttons
+            .button.is-info
+              = link_to "Register", register_path
+            .button
+              = link_to "Login", login_path

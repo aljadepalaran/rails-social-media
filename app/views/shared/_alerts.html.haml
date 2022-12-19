@@ -1,0 +1,6 @@
+- if flash[:alert]
+  %div= flash.alert
+- elsif flash[:notice]
+  %div= flash[:notice]
+- elsif flash[:danger]
+  %div= flash[:danger]
